@@ -1,0 +1,139 @@
+EXERCICIO 01
+public class CalculoMedia {
+
+  public static void main(String[] args) {
+
+    double nota1 = 7.5;
+    double nota2 = 8.0;
+    double nota3 = 9.0;
+
+    double media = (nota1 + nota2 + nota3) / 3;
+
+    System.out.println("Notas do aluno:");
+    System.out.println("Nota 1" + nota1);
+    System.out.println("Nota 2" + nota2);
+    System.out.println("Nota 3" + nota3);
+    System.out.println("Média das notas:" + media);
+}
+ }   
+
+EXERCICIO 02
+public class ConversaoCelsiusParaFahrenheit {
+
+  public static void main(String[] args) {
+       
+    double celsius = 30.0;
+
+    double fahrenheit = (celsius * 9/5) + 32;
+
+      System.out.println("Temperatura em Celsius: " + celsius);
+      System.out.println("Temperatura em Fahrenheit: " + fahrenheit);
+    }
+}
+
+EXERCICIO 03
+public class NomeCompleto {
+
+  public static void main(String[] args) {
+        
+     String primeiroNome = "Rafaella";
+     String sobrenome = "Quadrado";
+
+      String nomeCompleto = primeiroNome + " " + sobrenome;
+
+      System.out.println("Nome completo: " + nomeCompleto);
+    }
+}
+
+EXERCICIO 04
+import java.util.Scanner;
+
+public class CalculoMediaAluno {
+
+  public static void main(String[] args) {
+        
+    Scanner scanner = new Scanner(System.in);
+
+      System.out.print("Digite a primeira nota: ");
+      double nota1 = scanner.nextDouble();
+
+      System.out.print("Digite a segunda nota: ");
+      double nota2 = scanner.nextDouble();
+        
+      scanner.close();
+
+      double media = (nota1 + nota2) / 2;
+
+        if (media >= 6.0) {
+            System.out.println("Aluno aprovado!");
+        } else {
+            System.out.println("Aluno reprovado.");
+        }
+    }
+}
+
+EXERCICIO 05
+import java.util.Scanner;
+
+public class DiaDaSemana {
+
+  public static void main(String[] args) {
+        
+    Scanner scanner = new Scanner(System.in);
+
+      System.out.print("Digite um número de 1 a 7: ");
+      int numeroDia = scanner.nextInt();
+     
+      scanner.close();
+
+        String nomeDia;
+        switch (numeroDia) {
+            case 1:
+                nomeDia = "Domingo";
+                break;
+            case 2:
+                nomeDia = "Segunda-feira";
+                break;
+            case 3:
+                nomeDia = "Terça-feira";
+                break;
+            case 4:
+                nomeDia = "Quarta-feira";
+                break;
+            case 5:
+                nomeDia = "Quinta-feira";
+                break;
+            case 6:
+                nomeDia = "Sexta-feira";
+                break;
+            case 7:
+                nomeDia = "Sábado";
+                break;
+            default:
+                nomeDia = "Erro: Número fora do intervalo";
+        }
+
+        System.out.println("Dia da semana: " + nomeDia);
+    }
+}
+
+EXERCICIO 06
+import java.util.Scanner;
+
+public class NumerosParesFor {
+
+ public static void main(String[] args) {
+    
+      Scanner scanner = new Scanner(System.in);
+       
+      System.out.print("Digite um número inteiro positivo: ");
+      int numero = scanner.nextInt();
+
+      scanner.close();
+
+      System.out.println("Números pares de 1 até " + numero + " (usando for):");
+      for (int i = 2; i <= numero; i += 2) {
+          System.out.print(i + " ");
+        }
+    }
+}
