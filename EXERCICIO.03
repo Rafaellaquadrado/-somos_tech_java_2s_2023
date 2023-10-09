@@ -1,0 +1,134 @@
+EXERCICIO 01
+
+public class SomaArray {
+    public static void main(String[] args) {
+       
+        int[] numeros = {10, 20, 30, 40, 50};
+   
+        int soma = 0;
+        for (int i = 0; i < numeros.length; i++) {
+            soma += numeros[i];
+        }
+        System.out.println("O resultado da soma dos elementos do array é: " + soma);
+    }
+}
+
+EXERCICIO 02
+
+public class Cores {
+    public static void main(String[] args) {
+    
+        String[] cores = {"vermelho", "verde", "azul"};
+
+        for (int i = 0; i < cores.length; i++) {
+            System.out.println("Cor: " + cores[i]);
+        }
+    }
+}
+
+EXERCICIO 03
+import java.util.Random;
+
+public class MaiorMenorArray {
+    public static void main(String[] args) {
+       
+        int tamanho = 10;
+
+        int[] numeros = new int[tamanho];
+
+        Random random = new Random();
+        
+        for (int i = 0; i < tamanho; i++) {
+            numeros[i] = random.nextInt(100) + 1; // Gera números entre 1 e 100
+        }
+
+        int maior = numeros[0];
+        int menor = numeros[0];
+
+        for (int i = 1; i < tamanho; i++) {
+            if (numeros[i] > maior) {
+                maior = numeros[i];
+            } else if (numeros[i] < menor) {
+                menor = numeros[i];
+            }
+        }
+
+        System.out.print("Array gerado: ");
+        for (int numero : numeros) {
+            System.out.print(numero + " ");
+        }
+        System.out.println();
+
+        System.out.println("Maior valor: " + maior);
+        System.out.println("Menor valor: " + menor);
+    }
+}
+
+EXERCICIO 04
+
+public class ExibirCaracteres {
+    public static void main(String[] args) {
+       
+        char[] palavra = {'O', 'b', 'r', 'i', 'g', 'a', 'd', 'a'};
+
+        for (int i = 0; i < palavra.length; i++) {
+            System.out.println(palavra[i]);
+        }
+    }
+}
+
+EXERCICIO 05
+
+public class OrdenacaoCrescente {
+    public static void main(String[] args) {
+    
+        int[] numeros = {11, 6, 7, 30, 2, 1, 16};
+
+        bubbleSort(numeros);
+
+        System.out.println("Array ordenado em ordem crescente:");
+        for (int numero : numeros) {
+            System.out.print(numero + " ");
+        }
+    }
+
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        boolean troca;
+        do {
+            troca = false;
+            for (int i = 0; i < n - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+              
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    troca = true;
+                }
+            }
+        } while (troca);
+    }
+}
+
+EXERCICIO 06
+
+public class TabelaDeNotas {
+    public static void main(String[] args) {
+       
+        double[][] notasDosAlunos = {
+            {7.0, 8.5, 8.0},  // Notas do primeiro aluno em diferentes disciplinas
+            {5.0, 8.5, 8.0},  // Notas do segundo aluno em diferentes disciplinas
+            {8.5, 9.0, 9.0}   // Notas do terceiro aluno em diferentes disciplinas
+        };
+
+        for (int i = 0; i < notasDosAlunos.length; i++) {
+            double somaNotas = 0.0;
+            for (int j = 0; j < notasDosAlunos[i].length; j++) {
+                somaNotas += notasDosAlunos[i][j];
+            }
+            
+            double media = somaNotas / notasDosAlunos[i].length;
+            System.out.println("Média de notas do aluno " + (i + 1) + ": " + media);
+        }
+    }
+}
