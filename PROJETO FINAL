@@ -1,0 +1,164 @@
+import java.util.*;
+
+class Livro {
+    private String titulo;
+    private String autor;
+    private boolean disponivel;
+
+    public Livro(String titulo, String autor) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.disponivel = true;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public boolean estaDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+}
+
+class Usuario {
+    private String nome;
+    private int id;
+
+    public Usuario(String nome, int id) {
+        this.nome = nome;
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getId() {
+        return id;
+    }
+}
+
+class Emprestimo {
+    private Livro livro;
+    private Usuario usuario;
+    private Date dataEmprestimo;
+    private Date dataDevolucao;
+
+    public Emprestimo(Livro livro, Usuario usuario) {
+        this.livro = livro;
+        this.usuario = usuario;
+        this.dataEmprestimo = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 7); // Exemplo: prazo de 7 dias para devolução
+        this.dataDevolucao = calendar.getTime();
+    }
+
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public Date getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+}
+
+public class GerenciadorBiblioteca {
+    private List<Livro> livrosDisponiveis;
+    private List<Emprestimo> historicoEmprestimos;
+
+    public GerenciadorBiblioteca() {
+        livrosDisponiveis = new ArrayList<>();
+        historicoEmprestimos = new ArrayList<>();
+    }
+
+    public void cadastrarLivro(String titulo, String autor) {
+        Livro novoLivro = new Livro(titulo, autor);
+        livrosDisponiveis.add(novoLivro);
+    }
+
+    public void realizarEmprestimo(Livro livro, Usuario usuario) {
+        if (livro.estaDisponivel()) {
+            livro.setDisponivel(false);
+            Emprestimo emprestimo = new Emprestimo(livro, usuario);
+            historicoEmprestimos.add(emprestimo);
+            System.out.println("Empréstimo realizado com sucesso para " + usuario.getNome() + ": "
+                    + livro.getTitulo() + " - Devolução até: " + emprestimo.getDataDevolucao());
+        } else {
+            System.out.println("Livro não disponível para empréstimo.");
+        }
+    }
+
+    public void realizarDevolucao(Livro livro) {
+        livro.setDisponivel(true);
+        for (Emprestimo emprestimo : historicoEmprestimos) {
+            if (emprestimo.getLivro().equals(livro)) {
+                historicoEmprestimos.remove(emprestimo);
+                break;
+            }
+        }
+
+   public void listarLivrosDisponiveis() {
+        System.out.println("Livros Disponíveis:");
+        for (Livro livro : livrosDisponiveis) {
+            if (livro.estaDisponivel()) {
+                System.out.println("Título: " + livro.getTitulo() + " | Autor: " + livro.getAutor());
+            }
+
+  public void pesquisarPorTitulo(String titulo) {
+        System.out.println("Resultados da pesquisa por título '" + titulo + "':");
+        for (Livro livro : livrosDisponiveis) {
+            if (livro.getTitulo().toLowerCase().contains(titulo.toLowerCase())) {
+                System.out.println("Título: " + livro.getTitulo() + " | Autor: " + livro.getAutor());
+            }
+
+ public void pesquisarPorAutor(String autor) {
+        System.out.println("Resultados da pesquisa por autor '" + autor + "':");
+        for (Livro livro : livrosDisponiveis) {
+            if (livro.getAutor().toLowerCase().contains(autor.toLowerCase())) {
+                System.out.println("
+        System.out.println("Devolução realizada com sucesso: " + livro.getTitulo());
+    }
+
+    public static void main(String[] args) {
+        GerenciadorBiblioteca biblioteca = new GerenciadorBiblioteca();
+
+        biblioteca.cadastrarLivro("O Senhor dos Anéis", "J.R.R. Tolkien");
+        biblioteca.cadastrarLivro("1984", "George Orwell");
+
+        Usuario usuario1 = new Usuario("Alice", 1);
+        Usuario usuario2 = new Usuario("Bob", 2);
+
+        biblioteca.realizarEmprestimo(biblioteca.livrosDisponiveis.get(0), usuario1);
+        biblioteca.realizarEmprestimo(biblioteca.livrosDisponiveis.get(1), usuario2);
+
+        biblioteca.realizarDevolucao(biblioteca.livrosDisponiveis.get(0));
+
+ public class GerenciadorBiblioteca {
+    private List<Livro> livrosDisponiveis;
+    private List<Emprestimo> historicoEmprestimos;
+
+    public GerenciadorBiblioteca() {
+        livrosDisponiveis = new ArrayList<>();
+        historicoEmprestimos = new ArrayList<>();
+    }
+
+
+
+    }
+}
